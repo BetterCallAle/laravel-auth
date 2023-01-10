@@ -47,10 +47,19 @@
                                 <i class="fa-solid fa-gauge"></i>
                                 Dasboard
                             </a>
+                        </li>
 
+                        <li class="nav-item mb-3">
                             <a href="{{ route('admin.projects.index') }}" class="nav-link text-light text-center {{ Route::currentRouteName() === 'admin.projects.index' ? 'bg-secondary' : '' }}">
                                 <i class="fa-solid fa-border-all"></i>
                                 Tutti i progetti
+                            </a>
+                        </li>
+
+                        <li class="nav-item mb-3">
+                            <a href="{{ route('admin.projects.create') }}" class="nav-link text-light text-center {{ Route::currentRouteName() === 'admin.projects.create' ? 'bg-secondary' : '' }}">
+                                <i class="fa-solid fa-plus"></i>
+                                Aggiungi un progetto
                             </a>
                         </li>
                     </ul>
