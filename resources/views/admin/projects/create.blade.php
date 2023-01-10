@@ -4,7 +4,19 @@
 
 @section('content')
     <div class="container">
-        <h2>Aggiungi un nuovo progetto</h2>
+        <h2 class="mb-3">Aggiungi un nuovo progetto</h2>
+
+        @if ($errors->any())
+            <div class="bg-danger mb-3 text-light py-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            {{ $error }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         <form action="{{ route('admin.projects.store') }}" method="POST">
             @csrf
