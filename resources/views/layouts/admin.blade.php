@@ -47,6 +47,11 @@
                                 <i class="fa-solid fa-gauge"></i>
                                 Dasboard
                             </a>
+
+                            <a href="{{ route('admin.projects.index') }}" class="nav-link text-light text-center {{ Route::currentRouteName() === 'admin.projects.index' ? 'bg-secondary' : '' }}">
+                                <i class="fa-solid fa-border-all"></i>
+                                Tutti i progetti
+                            </a>
                         </li>
                     </ul>
                 </div>
