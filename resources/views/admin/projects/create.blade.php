@@ -23,12 +23,12 @@
 
             <div class="mb-3">
                 <label for="title" class="form-label">Inserisci il titolo del progetto</label>
-                <input type="text" class="form-control" id="title" name="title">   
+                <input type="text" class="form-control" id="title" name="title" value="{{ old('name') }}">   
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Inserisci la descrizione</label>
-                <textarea class="form-control" id="description" name="description"></textarea>
+                <textarea class="form-control" id="description" name="description">{{ old('description') }}</textarea>
             </div>
 
             <button type="submit" class="btn btn-success">Aggiungi</button>
