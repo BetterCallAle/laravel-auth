@@ -4,7 +4,12 @@
 
 @section('content')
     <div class="container mt-5">
-        <h2 class="text-center">Tutti i progetti</h2>
+        <h2 class="text-center  mb-3">Tutti i progetti</h2>
+        <div class="control text-end  mb-3">
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-success">
+                <i class="fa-solid fa-plus"></i>
+            </a>
+        </div>
 
         <table class="table">
             <thead>
