@@ -40,7 +40,7 @@
         <div class="row h-100">
             {{-- Sidebar --}}
             <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
-                <div class="position-sticky py-3 mt-5">
+                <div class="position-sticky py-3">
                     <ul class="nav flex-column">
                         <li class="nav-item mb-3">
                             <a href="{{ route('admin.dashboard') }}" class="nav-link text-light text-center {{ Route::currentRouteName() === 'admin.dashboard' ? 'bg-secondary' : '' }}">
