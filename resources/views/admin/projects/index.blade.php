@@ -42,12 +42,14 @@
                             <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger delete-btn" button-project-name="{{ $project->title }}"><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
           </table>
+          @include('partials.modal')
     </div>
+
 @endsection
