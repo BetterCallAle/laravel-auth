@@ -11,6 +11,12 @@
             </a>
         </div>
 
+        @if (session('message'))
+            <div class="alert alert-success" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
+
         <table class="table">
             <thead>
                 <tr>

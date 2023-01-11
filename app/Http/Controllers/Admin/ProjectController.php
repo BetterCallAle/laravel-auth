@@ -40,12 +40,10 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $form_data = $request->validated();
-        $new_project = new Project();
-        $new_project->fill($form_data);
-        $new_project->slug = Str::slug($new_project->title, '-');
-        $new_project->save();
+        $form_data['slug'] = Project::getTheSlug($form_data['title']);
+        $new_project = Project::create($form_data);
 
-        return redirect()->route('admin.projects.show', $new_project->slug);
+        return redirect()->route('admin.projects.index')->with('message', "La creazione di $new_project->title è andata a buon fine!");
     }
 
     /**
@@ -80,9 +78,9 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $form_data = $request->validated();
-        $project->slug = Str::slug($form_data['title'], '-');
+        $form_data['slug'] = Project::getTheSlug($form_data['title']);
         $project->update($form_data);
-        return redirect()->route('admin.projects.show', $project->slug);
+        return redirect()->route('admin.projects.index')->with('message', "Hai aggiornato $project->title correttamente!");
     }
 
     /**
