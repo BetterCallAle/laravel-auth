@@ -18,12 +18,12 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
             <div class="mb-3">
-                <label for="title" class="form-label">Inserisci il titolo del progetto</label>
+                <label for="title" class="form-label">Modifica il titolo del progetto</label>
                 <input type="text" class="form-control
                        @error('title')
                         is-invalid
@@ -40,7 +40,12 @@
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">Inserisci la descrizione</label>
+                <label for="cover_path" class="label-control">Modifica la cover</label>
+                <input type="file" id="cover_path" name="cover_path" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Modifica la descrizione</label>
                 <textarea class="form-control @error('description') is-invalid @enderror"  id="description"  name="description" >{{ old('description', $project->description) }} </textarea>
 
                 @error('description')
