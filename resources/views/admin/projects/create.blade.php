@@ -30,6 +30,10 @@
                         {{ $message }}
                     </div>
                 @enderror
+                
+                <div class="text-center mt-3">
+                    <img src="" alt="" id="preview-img" class="mb-3 show-img">
+                </div>
             </div>
 
             <div class="mb-3">

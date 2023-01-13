@@ -40,11 +40,13 @@
                 @enderror
             </div>
             
-            @if ($project->cover_path)
-                <div class="text-center">
-                    <img src="{{ asset('storage/' . $project->cover_path) }}" alt="Cover di {{ $project->title }}" class="show-img">
-                </div>
-            @endif
+            <div class="text-center">
+                @if ($project->cover_path)
+                    <img src="{{ asset('storage/' . $project->cover_path) }}" alt="Cover di {{ $project->title }}" class="show-img" id="old-img">
+                @else
+                    <img src="" alt="" id="preview-img" class="show-img">
+                @endif
+            </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Modifica la descrizione</label>
