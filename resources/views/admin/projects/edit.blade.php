@@ -41,11 +41,7 @@
             </div>
             
             <div class="text-center">
-                @if ($project->cover_path)
-                    <img src="{{ asset('storage/' . $project->cover_path) }}" alt="Cover di {{ $project->title }}" class="show-img" id="old-img">
-                @else
-                    <img src="" alt="" id="preview-img" class="show-img">
-                @endif
+                <img src="{{ $project->cover_path ? asset('storage/' . $project->cover_path) : '' }}" alt="{{ $project->cover_path ? "Cover di $project->title" : '' }}" id="preview-img" class="show-img">
             </div>
 
             <div class="mb-3">

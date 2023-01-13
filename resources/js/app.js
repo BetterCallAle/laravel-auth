@@ -22,20 +22,15 @@ if(showDeleteBtn){
 // Img preview
 const fileInput = document.getElementById('cover_path');
 const imgPreview = document.getElementById('preview-img');
-const oldImg = document.getElementById('old-img');
 
 
-if(fileInput && imgPreview || oldImg){
+if(fileInput && imgPreview){
     fileInput.addEventListener('change', function() {
         const uploadedFile = this.files[0];
         if(uploadedFile){
             const reader = new FileReader();
             reader.addEventListener('load', function(){
-                if(oldImg){
-                    oldImg.src = reader.result
-                } else {
-                    imgPreview.src = reader.result;
-                }
+                imgPreview.src = reader.result;
             })
     
             reader.readAsDataURL(uploadedFile)
