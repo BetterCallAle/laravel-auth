@@ -6,17 +6,7 @@
     <div class="container">
         <h2 class="mt-4 mb-4 text-center">Aggiorna {{ $project->title }}</h2>
 
-        @if ($errors->any())
-            <div class="alert alert-danger mb-3 py-4">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>
-                            {{ $error }}
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('partials.error')
 
         <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -41,8 +31,20 @@
 
             <div class="mb-3">
                 <label for="cover_path" class="label-control">Modifica la cover</label>
-                <input type="file" id="cover_path" name="cover_path" class="form-control">
+                <input type="file" id="cover_path" name="cover_path" class="form-control @error('cover_path') is-invalid @enderror">
+
+                @error('cover_path')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
+            
+            @if ($project->cover_path)
+                <div class="text-center">
+                    <img src="{{ asset('storage/' . $project->cover_path) }}" alt="Cover di {{ $project->title }}" class="show-img">
+                </div>
+            @endif
 
             <div class="mb-3">
                 <label for="description" class="form-label">Modifica la descrizione</label>

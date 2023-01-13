@@ -6,17 +6,7 @@
     <div class="container">
         <h2 class="mt-3 mb-3 text-center">Aggiungi un nuovo progetto</h2>
 
-        @if ($errors->any())
-            <div class="alert alert-danger mb-3 py-4">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>
-                            {{ $error }}
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('partials.error')
 
         <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -33,7 +23,13 @@
 
             <div class="mb-3">
                 <label for="cover_path" class="form-label">Inserisci l'immagine della cover</label>
-                <input type="file" id="cover_path" name="cover_path" class="form-control">
+                <input type="file" id="cover_path" name="cover_path" class="form-control @error('cover_path') is-invalid @enderror">
+
+                @error('cover_path')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-3">
