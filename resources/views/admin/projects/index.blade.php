@@ -22,6 +22,7 @@
                 <tr>
                     <th scope="col">Titolo</th>
                     <th scope="col">Data di creazione</th>
+                    <th scope="col">Immagini</th>
                     <th scope="col">Azioni</th>
                 </tr>
             </thead>
@@ -30,6 +31,15 @@
                     <tr>
                         <th scope="row">{{ $project->title }}</th>
                         <td>{{ $project->created_at }}</td>
+                        <td>
+                            @if ($project->cover_path)
+                                <img src="{{ asset('storage/' . $project->cover_path) }}" alt="Cover di {{ $project->title }}" class="table-image w-50">
+                            @else
+                                <div class="w-50 text-center bg-secondary py-3 text-light">
+                                    <span>Nessuna immagine disponibile</span>
+                                </div>
+                            @endif
+                        </td>
                         <td>
                             <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-success">
                                 <i class="fa-solid fa-eye"></i>
