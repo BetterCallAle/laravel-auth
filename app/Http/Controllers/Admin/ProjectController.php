@@ -107,6 +107,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if($project->cover_path){
+            Storage::delete($project->cover_path);
+        }
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message', "$project->title è stato cancellato correttamente!");
     }
